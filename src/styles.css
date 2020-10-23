@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'IcoFont';
+  font-style: normal;
+  font-weight: 400;
+  src : url(./assets/fonts/icofont.woff);
+}
+@font-face {
+  font-family: 'Baloo2';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/fonts/Baloo2-Regular.ttf); /* For IE6-8 */
+
+}
+@font-face {
+  font-family: 'Baloo2';
+  font-style: normal;
+  font-weight: 500;
+  src: url(./assets/fonts/Baloo2-Medium.ttf); /* For IE6-8 */
+
+}
+@font-face {
+  font-family: 'Baloo2';
+  font-style: normal;
+  font-weight: 700;
+  src: url(./assets/fonts/Baloo2-Bold.ttf); /* For IE6-8 */
+}
+
+

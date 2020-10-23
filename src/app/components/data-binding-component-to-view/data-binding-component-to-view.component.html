@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-body">
+    <!--            interpolation-->
+    <div>
+      <p *ngIf="isMarried=== true"> {{name}}</p>
+      <p> {{user.email}}</p>
+      <p> Họ tên : {{showName()}}</p>
+      <img src="{{links}}" alt="" width="350">
+    </div>
+    <!-- property binding-->
+    <div style="margin-top: 30px">
+      <img [src]="urlAvatar" alt="" [width]="widthImage">
+      <form style="margin: 30px">
+        <div class="d-flex justify-content-between">
+          <label for="name">Name</label>
+          <input id="name" name="password" type="name" class="form-control" placeholder="Password">
+          <button type="submit" class="btn btn-primary" [disabled]="isDisabled">Send</button>
+        </div>
+      </form>
+
+      <img bind-src="srcImage" alt="" [width]="widthImage">
+    </div>
+
+    <!--          attribute binding-->
+    <table class="table table-bordered" style="margin: 30px 0" [attr.width]="widthTable">
+      <thead>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Email</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>lazy</td>
+        <td>lazy@yomail.com</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!--          class binding-->
+    <table [class.table-bordered]="isBorder" [class.table-hover]="isHover" class="table" style="margin: 30px 0" [attr.width]="widthTable">
+      <thead>
+          <th>No.</th>
+          <th>Name</th>
+          <th>Email</th>
+      </thead>
+      <tbody>
+        <tr>
+            <td>1</td>
+            <td>lazy</td>
+            <td>lazy@yomail.com</td>
+        </tr>
+      </tbody>
+    </table>
+
+<!--    style binding-->
+    <p [style.color] = "isTextRed ? 'red' : ''" [style.font-size.px]="sizeText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, velit.</p>
+
+    <div style="width: 300px ;height: 230px" [style.border]="isMainBorder ? '1px solid #2451cf' : ''">
+
+    </div>
+
+    <!--   -------------------------->
+  </div>
+</div>
