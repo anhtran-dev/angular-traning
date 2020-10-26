@@ -11,11 +11,31 @@
         <div class="card-star_rating">
           <span class="badge badge-primary">4.5</span>
         </div>
-<!--        <p [ngClass] = "['border-bottom','danger-color']"> Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies. </p>-->
-<!--        <p [ngClass] = "{'danger-color border-bottom' : isSpecial === true , 'pt-10' : isPadding === true}">-->
-<!--          Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.-->
-<!--        </p>-->
-        <p [ngClass] = "setClasses()"> Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies. </p>
+        <!--  ------------------ //  ngClass-->
+        <div>
+<!--            <p [ngClass]="['border-bottom','danger-color']"> Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies. </p>-->
+            <!--        <p [ngClass] = "{'danger-color border-bottom' : isSpecial === true , 'pt-10' : isPadding === true}">-->
+            <!--          Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.-->
+            <!--        </p>-->
+            <p [ngClass]="setClasses()"> Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies. </p>
+        </div>
+        <!--  ------------------ //  ngStyle-->
+        <div>
+<!--            <span [ngStyle] = "{'color' : 'red' , 'padding.px' : '10', 'margin' : '10px' }">-->
+<!--              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, impedit!-->
+<!--            </span>-->
+<!--                <span-->
+<!--                    [ngStyle] = "{-->
+<!--                        'border' : styleBorder === true ? '1px solid #808080' : '',-->
+<!--                        'color' : styleColorRed === false ? 'red' : '#2451cf'-->
+<!--                    }"-->
+<!--                  >-->
+<!--                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, vero!-->
+<!--                </span>-->
+            <span [ngStyle] = "setStyles()">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, vero!
+            </span>
+        </div>
       </div>
     </div>
   </div>

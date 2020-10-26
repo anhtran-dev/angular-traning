@@ -1,0 +1,91 @@
+<div id="tableHover" class="col-lg-12 col-12 layout-spacing">
+  <div class="statbox widget box box-shadow">
+    <div class="widget-content widget-content-area">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover mb-4">
+          <thead>
+            <tr>
+                <th>No.</th>
+                <th>Pipe</th>
+                <th>Data</th>
+                <th class="text-center">Result</th>
+
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>UpperCase</td>
+                  <td>{{title}}</td>
+                  <td class="text-center"><span class="text-success">{{title | uppercase}}</span></td>
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>LowerCase</td>
+                  <td>{{content}}</td>
+                  <td class="text-center"><span class="text-secondary">{{content | lowercase}}</span></td>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>TitleCase</td>
+                  <td>{{title}}</td>
+                  <td class="text-center"><span class=  "text-info">{{title | titlecase}}</span></td>
+              </tr>
+              <tr>
+                  <td>4</td>
+                  <td>Slice</td>
+                  <td>{{content}}</td>
+<!--                  <td class="text-center"><span class="text-danger">{{content | slice:50 }}</span></td>-->
+                  <td class="text-center"><span class="text-danger">{{content | slice:50 : 80 }}</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Number</td>
+                <td>{{price}}</td>
+<!--                <td class="text-center"><span class=  "text-info">{{price | number : '1.0-2'}}</span></td>-->
+                <td class="text-center"><span class=  "text-info">{{price | number : '3.8'}}</span></td>
+<!--                <td class="text-center"><span class=  "text-info">{{price | number : '5.2-5'}}</span></td>-->
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Percent</td>
+                <td>{{result}}</td>
+                <td class="text-center"><span class=  "text-info">{{result | percent : '1.0-1' }}</span></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Slice</td>
+                <td>{{cars}}</td>
+<!--                <td class="text-center"><span class=  "text-info">{{cars | slice : 5}}</span></td>-->
+                <td class="text-center"><span class=  "text-info">{{cars | slice : 4 : 8}}</span></td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Currency</td>
+                <td>{{total}}</td>
+<!--                <td class="text-center"><span class=  "text-info">{{total | currency : 'VND'}}</span></td>-->
+<!--                <td class="text-center"><span class=  "text-info">{{total | currency : 'FRF':true}}</span></td>-->
+                <td class="text-center"><span class=  "text-info">{{total | currency : 'USD':false}}</span></td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Date</td>
+                <td>{{date}}</td>
+                <td class="text-center"><span class=  "text-info">{{date | date : 'dd/MM/y HH:mm:ss' }}</span></td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Json</td>
+                <td>{{users}}</td>
+<!--                <td class="text-center"><span class=  "text-info">{{users | json}}</span></td>-->
+                <td class="text-center"><span class=  "text-info">{{users | json | uppercase}}</span></td>
+              </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</div>

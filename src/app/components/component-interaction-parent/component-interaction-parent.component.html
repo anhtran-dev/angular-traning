@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-head">
+     <h4>Component parent</h4>
+  </div>
+    <div class="card-body">
+      <app-component-interaction-child
+        [active] = "active" [age] = "age" [names] = "names" name = "{{name}}"
+
+        (email) = "onGetEmail($event)"  (phone) = onGetPhone($event)
+
+      ></app-component-interaction-child>
+    </div>
+</div>

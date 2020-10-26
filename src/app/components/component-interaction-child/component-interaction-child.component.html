@@ -1,0 +1,46 @@
+<div class="widget-content widget-content-area">
+
+  <div class="card component-card_3">
+    <div class="card-body">
+      <img src="https://4.bp.blogspot.com/-elHcidP2MmU/WFf19J69WtI/AAAAAAAAjug/0Xlyxuq41Co77HHP-xt6aXq4HcqoSj2ngCLcB/s640/14344167_1704018319646621_2524702075849774767_n.png" class="card-img-top" alt="...">
+      <h5 class="card-user_name">{{name}}</h5>
+      <p class="card-user_occupation">Manager</p>
+      <div class="card-star_rating">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star fill"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </div>
+      <p class="card-text"> Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies. </p>
+      <p class="card-text">Status : {{active === true ? 'active' : 'block'}}</p>
+      <p class="card-text">Age : {{age}}</p>
+      <ng-container *ngIf="names.length > 0 ; else emptyNames">
+          <div>
+            <ul>
+              <li *ngFor="let item of names">{{item}}</li>
+            </ul>
+          </div>
+      </ng-container>
+      <ng-template #emptyNames>
+          <p>Không có mảng tên</p>
+      </ng-template>
+
+    </div>
+  </div>
+
+  <div class="card component-card_3" style="margin: 30px auto">
+    <div class="card-body" >
+      <form method="post">
+        <div class="form-group">
+          <p>Use input <code>type="text"</code>.</p>
+          <label class="sr-only">Text</label>
+          <input type="text" name="txt" placeholder="Some Text..." class="form-control" required [(ngModel)] = "email"  [ngModelOptions]="{standalone: true}">
+          <input type="text" name="txt" placeholder="Some Text..." class="form-control" required [(ngModel)] = "phone"  [ngModelOptions]="{standalone: true}">
+          <input type="submit" name="txt" class="mt-4 btn btn-primary" value="Send" (click)="sendData()"/>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

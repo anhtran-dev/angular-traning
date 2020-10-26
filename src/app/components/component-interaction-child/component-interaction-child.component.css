@@ -1,0 +1,41 @@
+.component-card_3 {
+  border: none;
+  border-radius: 8px;
+  background: #3b3f5c;
+  width: 18rem;
+  margin: 0 auto;
+  box-shadow: 4px 6px 10px -3px #bfc9d4;
+}
+.component-card_3 .card-body {
+  padding: 22px 20px;
+  text-align: center;
+}
+.component-card_3 .card-body img {
+  width: 85px;
+  height: 85px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+}
+.component-card_3 .card-body h5.card-user_name {
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.component-card_3 .card-body p.card-user_occupation {
+  font-size: 14px;
+  color: #acb0c3;
+  letter-spacing: 1px;
+}
+.component-card_3 .card-body .card-star_rating { margin-bottom: 24px; }
+.component-card_3 .card-body .card-star_rating svg {
+  width: 20px;
+  color: #e2a03f;
+}
+.component-card_3 .card-body .card-star_rating svg.fill { fill: #e2a03f; }
+.component-card_3 .card-body .card-text {
+  color: #acb0c3;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
