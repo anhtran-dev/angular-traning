@@ -1,0 +1,213 @@
+<!--input-->
+<div class="widget-content widget-content-area">
+
+  <div class="row">
+    <div class="col-lg-12 col-12 mx-auto">
+      <div class="widget-header">
+        <div class="row">
+          <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+            <h4>Input</h4>
+          </div>
+        </div>
+      </div>
+      <form method="post">
+          <div class="form-group">
+            <p>Use input <code>type="text"</code>.</p>
+            <label for="t-text" class="sr-only">Text</label>
+            <input id="t-text" type="text" name="txt" placeholder="Some Text..." class="form-control" required [(ngModel)] = "name"  [ngModelOptions]="{standalone: true}">
+            <p style="padding: 10px 0">Result text : {{name}}</p>
+            <input type="submit" name="txt" class="mt-4 btn btn-primary">
+          </div>
+        <div class="form-group">
+          <select class="form-control form-control-sm" [(ngModel)] = "gender"  [ngModelOptions]="{standalone: true}">
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <p style="padding: 10px 0">Result select : {{gender}}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!--select-->
+<div class="widget-content widget-content-area">
+  <div class="widget-header">
+    <div class="row">
+      <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+        <h4>Select</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xl-6 mb-xl-0 mb-2">
+        <select class="form-control form-control-sm" [(ngModel)] = "gender">
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <p style="padding: 10px 0">Result select : {{gender}}</p>
+      </div>
+
+  </div>
+
+</div>
+<!--// checkbox-->
+<div class="col-xl-12 col-12 layout-spacing">
+  <div class="statbox widget box box-shadow">
+    <div class="widget-header">
+      <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+          <h4>Default Text Color</h4>
+        </div>
+      </div>
+    </div>
+    <div class="widget-content widget-content-area">
+      <p class="mb-4">Use <code>.new-checkbox-text</code> class to make text colored as checkbox.</p>
+      <div class="row">
+        <div class="col-md-12 col-6">
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text">
+              <input type="checkbox" class="new-control-input" >
+              <span class="new-control-indicator"></span><span class="new-chk-content">Default</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-primary">
+              <input type="checkbox" class="new-control-input" [(ngModel)] = "checked">
+              <span class="new-control-indicator"></span><span class="new-chk-content">Primary</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-success">
+              <input type="checkbox" class="new-control-input">
+              <span class="new-control-indicator"></span><span class="new-chk-content">Success</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-info">
+              <input type="checkbox" class="new-control-input">
+              <span class="new-control-indicator"></span><span class="new-chk-content">Info</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-warning">
+              <input type="checkbox" class="new-control-input">
+              <span class="new-control-indicator"></span><span class="new-chk-content">Warning</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-danger">
+              <input type="checkbox" class="new-control-input">
+              <span class="new-control-indicator"></span><span class="new-chk-content">Danger</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-secondary">
+              <input type="checkbox" class="new-control-input">
+              <span class="new-control-indicator"></span><span class="new-chk-content">Secondary</span>
+            </label>
+          </div>
+
+          <div class="n-chk">
+            <label class="new-control new-checkbox new-checkbox-text checkbox-dark">
+              <input type="checkbox" class="new-control-input" checked>
+              <span class="new-control-indicator"></span><span class="new-chk-content">Dark</span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--radio-->
+<div class="col-xl-12 col-12 layout-spacing">
+  <div class="statbox widget box box-shadow">
+    <div class="widget-header">
+      <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+          <h4>Default</h4>
+        </div>
+      </div>
+    </div>
+    <div class="widget-content widget-content-area">
+      <p class="mb-4">Use <code>.radio-*</code> class to change different colors.</p>
+
+      <div class="n-chk">
+        <label class="new-control new-radio">
+          <input type="radio" class="new-control-input" name="custom-radio-1" value = "default" [(ngModel)] = "radioSelected">
+          <span class="new-control-indicator"></span>Default
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-primary">
+          <input type="radio" class="new-control-input" name="custom-radio-1" value = "primary" [(ngModel)] = "radioSelected">
+          <span class="new-control-indicator"></span>Primary
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-success">
+          <input type="radio" class="new-control-input" name="custom-radio-1" value = "success" [(ngModel)] = "radioSelected">
+          <span class="new-control-indicator"></span>Success
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-info">
+          <input type="radio" class="new-control-input" name="custom-radio-1">
+          <span class="new-control-indicator"></span>Info
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-warning">
+          <input type="radio" class="new-control-input" name="custom-radio-1">
+          <span class="new-control-indicator"></span>Warning
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-danger">
+          <input type="radio" class="new-control-input" name="custom-radio-1">
+          <span class="new-control-indicator"></span>Danger
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-secondary">
+          <input type="radio" class="new-control-input" name="custom-radio-1">
+          <span class="new-control-indicator"></span>Secondary
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <label class="new-control new-radio radio-dark">
+          <input type="radio" class="new-control-input" name="custom-radio-1">
+          <span class="new-control-indicator"></span>Dark
+        </label>
+      </div>
+
+      <div class="n-chk">
+        <p>Result radio : {{radioSelected}}</p>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
