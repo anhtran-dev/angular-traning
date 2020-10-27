@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-body">
+        <div class="widget-content widget-content-area">
+
+            <div class="row">
+                <div class="col-lg-6 col-12 mx-auto">
+                    <form method="post">
+                        <div class="form-group">
+                            <p>Use input <code>type="text"</code>.</p>
+                            <label for="t-text" class="sr-only">Text</label>
+<!--                            <input id="t-text" type="text" name="txt" placeholder="Some Text..." class="form-control" #email>-->
+                            <input id="t-text" type="text" name="txt" placeholder="Some Text..." class="form-control" ref-email>
+                            <input type="submit" name="txt" class="mt-4 btn btn-primary" (click)="getData(email.value)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="widget-content widget-content-area">
+
+            <div class="row">
+                <div class="col-lg-6 col-12 mx-auto">
+                    <form method="post">
+                        <div class="form-group">
+                            <p>Use input <code>type="text"</code>.</p>
+                            <label  class="sr-only">Text</label>
+                            <!--                            <input id="t-text" type="text" name="txt" placeholder="Some Text..." class="form-control" #email>-->
+                            <input  type="text" name="txt" placeholder="Some Text..." class="form-control" ref-name>
+                            <input type="submit" name="txt" class="mt-4 btn btn-primary" (click)="getDataForm()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
