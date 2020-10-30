@@ -1,0 +1,11 @@
+<form>
+    <div class="form-group">
+        <label for="name" >Name</label>
+        <input id="name" type="text"   class="form-control" required [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+        <label for="link" >Link</label>
+        <input id="link" type="email"   class="form-control" required [(ngModel)]="link" [ngModelOptions]="{standalone: true}">
+        <label for="author" >Author</label>
+        <input id="author" type="text"   class="form-control" required [(ngModel)]="author" [ngModelOptions]="{standalone: true}">
+        <input type="submit"  class="mt-4 btn btn-primary" (click)="addMovie()">
+    </div>
+</form>

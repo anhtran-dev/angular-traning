@@ -1,1 +1,61 @@
-<p>lifecycle-hooks works!</p>
+
+<h6>Total : {{total}}</h6>
+<h6>Total Previous: {{previousTotal}}</h6>
+
+<div class="card" >
+    <app-other-lifecycle-hooks>
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, vitae.</span>
+        <p class="selected">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda enim in inventore laborum magnam maiores perspiciatis recusandae repellendus, tempore!</p>
+        <p id="tab"> Tabbbbbbbbbbbbbb</p>
+        <div>
+            <h6 #value>{{content}}</h6>
+        </div>
+    </app-other-lifecycle-hooks>
+    <form>
+        <input type="text" class="form-control" ref-text>
+        <button class="btn btn-dark" (click)="submitForm(text.value)">Submit</button>
+    </form>
+
+</div>
+
+<div class="card">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>ngAfterViewInit -- ngAfterViewChecked</h4>
+                </div>
+            </div>
+        </div>
+        <div class="widget-content widget-content-area">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" ref-name>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Add" class="form-control btn btn-primary" (click)="addJob(name.value)">
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover mb-4">
+                    <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+
+                    </tr>
+                    </thead>
+                    <tbody #listJobs>
+                    <tr *ngFor="let item of jobs; let index = index">
+                        <td>{{index + 1}}</td>
+                        <td>{{item.name}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

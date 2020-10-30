@@ -1,0 +1,27 @@
+
+<div class="widget-content widget-content-area">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover mb-4">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th style="width: 40%">Link</th>
+                <th>Author</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listMovies; let index = index">
+                   <td>{{index + 1}}</td>
+                   <td>{{item.name}}</td>
+                   <td>
+                       <a [href]="item.link">{{item.link}}</a>
+                   </td>
+                   <td>{{item.author}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

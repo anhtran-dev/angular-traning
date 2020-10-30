@@ -1,0 +1,52 @@
+<div class="statbox widget box box-shadow">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                <h4>List Products </h4>
+            </div>
+        </div>
+    </div>
+    <div class="widget-content widget-content-area">
+        <div class="widget-search">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" [(ngModel)]="name">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" placeholder="Nhập giá sản phẩm" class="form-control" [(ngModel)]="price">
+                </div>
+                <div class="col-md-2">
+<!--                    <button class="btn btn-danger" [routerLink]="['/product']" [queryParams] = "{name: name ? name : '', price: price ? price : ''}" (click)="searchProduct()">Search</button>-->
+                    <button class="btn btn-primary"  (click)="onSearchProduct()">Search</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover mb-4">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th class="text-center">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of products; let index = index">
+                    <td>{{index + 1}}</td>
+                    <td>
+                        <a [routerLink]="['/product/'+item.id]">{{item.name}}</a>
+                    </td>
+                    <td>{{item.price | currency : 'USD'}}</td>
+                    <td>{{item.status ? 'Active' : 'Non-active'}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
