@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <div class="widget-product">
+            <div class="product-info">
+                <p>{{product.name}}</p>
+                <p>{{product.price | currency : 'USD'}}</p>
+                <p>{{product.status ? 'active' : 'block'}}</p>
+            </div>
+            <div class="action-product">
+<!--                <button class="btn-sm btn-warning" (click)="editProduct(product.id)">Edit</button>-->
+<!--                <button class="btn-sm btn-danger" (click)="deleteProduct(product.id)">Delete</button>-->
+
+                <button class="btn-sm btn-warning" (click)="editProduct()">Edit</button>
+                <button class="btn-sm btn-danger" (click)="deleteProduct()">Delete</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-sm btn-primary" [routerLink]="['/product/1']">product 1</button>
+    </div>
+    <div>
+        <button class="btn btn-sm btn-primary" (click)="BackToList()">Back to list product</button>
+    </div>
+</div>

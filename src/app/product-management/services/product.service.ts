@@ -41,4 +41,8 @@ export class ProductService {
         }
         return result;
     };
+
+    updateProduct = (id) => {
+        console.log(id);
+    }
 }

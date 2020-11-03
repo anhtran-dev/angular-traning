@@ -1,0 +1,13 @@
+button{
+    margin-bottom: 20px;
+}
+.widget-product{
+    display: flex;
+    justify-content: space-between;
+}
+.widget-product .action-product button{
+    margin-right: 10px;
+}
+.widget-product .action-product button:focus{
+   outline: none;
+}

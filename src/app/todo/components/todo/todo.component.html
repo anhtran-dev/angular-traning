@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                            <h4>List Todos </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-content widget-content-area">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover mb-4">
+                            <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Title</th>
+                                <th>Completed</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of todos; let index = index">
+                                <td>{{index + 1}}</td>
+                                <td>{{item.title}}</td>
+                                <td>{{item.completed === true ? 'Completed' : 'Processing'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                            <h4>Add Todo </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-content widget-content-area">
+                    <form>
+                        <input type="text" class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
+                        <select  class="form-control" [(ngModel)] ="completed" [ngModelOptions]="{standalone: true}">
+                            <option value="" disabled selected>Status</option>
+                            <option value="true">Completed</option>
+                            <option value="false">Processing</option>
+                        </select>
+                        <button class="btn btn-primary" (click)="addTodo()">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
