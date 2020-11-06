@@ -1,0 +1,41 @@
+<div class="statbox widget box box-shadow">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                <h4>Edit Product </h4>
+            </div>
+        </div>
+    </div>
+    <div class="widget-content widget-content-area">
+        <div class="card">
+            <div class="card-body">
+                <form class="text-left">
+                    <div class="form">
+                        <div id="username-field" class="field-wrapper input">
+                            <input id="username" name="username" type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div id="email-field" class="field-wrapper input">
+                            <input id="email" name="email" type="text" value="" class="form-control"  [(ngModel)]="price" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div id="status-field" class="field-wrapper input">
+                            <select [(ngModel)]="status" class="form-control" [ngModelOptions]="{standalone: true}">
+                                <option value="" selected disabled>Chọn trạng thái</option>
+                                <option value="true">Active</option>
+                                <option value="false">Block</option>
+                            </select>
+                        </div>
+                        <div class="d-sm-flex justify-content-between">
+                            <div class="field-wrapper">
+                                <button class="btn btn-primary" (click)="updateProduct()">Update</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

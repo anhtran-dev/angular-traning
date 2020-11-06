@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Product} from '../../models/product.class';
 import {ProductService} from '../../services/product.service';
 import {Subscription} from 'rxjs';
+import {Product} from '../../../models/product.class';
 
 
 @Component({

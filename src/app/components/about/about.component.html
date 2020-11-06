@@ -1,1 +1,14 @@
-<p>about works!</p>
+<form class="text-left">
+    <div class="form">
+        <div id="password-field" class="field-wrapper input mb-2">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password"  #key>
+        </div>
+        <div class="d-sm-flex justify-content-between">
+            <div class="field-wrapper">
+                <button type="submit" class="btn btn-primary" value="" (click)="onAccess(key.value)">Check</button>
+            </div>
+        </div>
+
+
+    </div>
+</form>

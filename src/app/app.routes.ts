@@ -3,8 +3,9 @@ import {HomeComponent} from './components/home/home.component';
 import {AboutComponent} from './components/about/about.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
-import {ProductsComponent} from './components/products/products.component';
-import {ProductDetailComponent} from './components/product-detail/product-detail.component';
+import {LoginComponent} from './components/login/login.component';
+import {AuthGuard} from './services/guards/auth.guard';
+import {FormComponent} from './components/form/form.component';
 
 export const appRoutes: Routes = [
     // {
@@ -12,6 +13,10 @@ export const appRoutes: Routes = [
     //     redirectTo : '/index',
     //     pathMatch : 'full'
     // },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     {
         path: '',
         component: HomeComponent
@@ -21,20 +26,17 @@ export const appRoutes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'product',
-        component: ProductsComponent
-    },
-    {
-        path: 'product/:id',
-        component: ProductDetailComponent
-    },
-    {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        canDeactivate : [AuthGuard]
     },
     {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        path: 'form',
+        component: FormComponent
     },
     {
         path: '**',

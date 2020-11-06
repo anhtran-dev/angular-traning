@@ -16,7 +16,6 @@ import {PipeComponent} from './components/pipe/pipe.component';
 import {FormatDataPipe} from './pipes/format-data.pipe';
 import {FilterDataPipe} from './pipes/filter-data.pipe';
 import {SortArrayNumberPipe} from './pipes/sort-array-number.pipe';
-import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {SortDataPipe} from './pipes/sort-data.pipe';
 import {TemplateReferenceComponent} from './components/template-reference/template-reference.component';
 import {LifecycleHooksComponent} from './components/lifecycle-hooks/lifecycle-hooks.component';
@@ -38,10 +37,13 @@ import {ContactComponent} from './components/contact/contact.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HomeComponent} from './components/home/home.component';
 import {appRoutes} from './app.routes';
-import {ProductsComponent} from './components/products/products.component';
-import {ProductService} from './services/product.service';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-
+import {AuthGuard} from './services/guards/auth.guard';
+import {ProductManagementModule} from './product-management/product-management.module';
+import {HttpClientComponent} from './components/http-client/http-client.component';
+import {TodoModule} from './todo/todo.module';
+import {JsonServeComponent} from './components/json-serve/json-serve.component';
+import {CoursesManagementModule} from './courses-management/courses-management.module';
+import {FormComponent} from './components/form/form.component';
 
 
 @NgModule({
@@ -59,7 +61,6 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
         FormatDataPipe,
         FilterDataPipe,
         SortArrayNumberPipe,
-        CapitalizePipe,
         SortDataPipe,
         TemplateReferenceComponent,
         LifecycleHooksComponent,
@@ -77,19 +78,23 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
         ContactComponent,
         NotFoundComponent,
         HomeComponent,
-        ProductsComponent,
-        ProductDetailComponent,
+        HttpClientComponent,
+        JsonServeComponent,
+        FormComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        ProductManagementModule,
+        CoursesManagementModule,
+        TodoModule,
         FormsModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [
         LoggingService,
         MovieService,
-        ProductService
+        AuthGuard
     ],
     bootstrap: [AppComponent]
 })

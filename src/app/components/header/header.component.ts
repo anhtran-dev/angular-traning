@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+    public isLogin = true;
 
     constructor(
             public routeService: Router
@@ -14,10 +15,25 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        if (localStorage.getItem('user')) {
+            this.isLogin = true;
+        } else {
+            this.isLogin = false;
+        }
     }
 
     navigate = (url) => {
         // return this.routeService.navigate([url]);
-       return this.routeService.navigateByUrl(url);
-    }
+        return this.routeService.navigateByUrl(url);
+    };
+
+    onLogout = () => {
+        localStorage.removeItem('user');
+        this.redirectLogin();
+    };
+
+    redirectLogin = () => {
+        return this.routeService.navigate(['login']);
+    };
+
 }

@@ -17,6 +17,7 @@
                                 <th>No.</th>
                                 <th>Title</th>
                                 <th>Completed</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -24,6 +25,10 @@
                                 <td>{{index + 1}}</td>
                                 <td>{{item.title}}</td>
                                 <td>{{item.completed === true ? 'Completed' : 'Processing'}}</td>
+                                <td>
+                                    <span style="margin-right: 10px; cursor: pointer" (click)="showModalEdit(item)" data-toggle="modal" data-target="#editModal"><a class="btn-sm btn-warning">Edit</a></span>
+                                    <span style="cursor: pointer" (click)="onDelete(item)"><a class="btn-sm btn-danger">Delete</a></span>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -58,4 +63,33 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <ng-container *ngIf="todo">
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Update Todo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input type="text" class="form-control" [(ngModel)]="todo.title" [ngModelOptions]="{standalone: true}">
+                            <select  class="form-control" [(ngModel)] ="todo.completed" [ngModelOptions]="{standalone: true}">
+                                <option value="" disabled selected>Status</option>
+                                <option value="true">Completed</option>
+                                <option value="false">Processing</option>
+                            </select>
+                            <button class="btn btn-primary" (click)="onUpdate(todo)" data-dismiss="modal">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
 </div>

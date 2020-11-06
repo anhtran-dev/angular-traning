@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RouterComponent implements OnInit {
 
-   // ========================== Router - Routing
+   // ========================== Router - Routing =========================================
   /*
         Note :  -- Thực hiện nhiệm vụ chính là chuyển trang, thay đổi một số thành phần mà không cần load lại trang
                 -- Các vần đề cần chú ý :
@@ -64,7 +64,7 @@ export class RouterComponent implements OnInit {
 
   */
 
-  // ============================== lấy tham số trên router (params) - ActivatedRoute - snapshot
+  // ============================== lấy tham số trên router (params) - ActivatedRoute - snapshot  =======================
   /*
       Note :  -- Khai báo ActivatedRoute từ @angular/router
               -- Tiến hành Inject như một service ( inject vào constructor)
@@ -73,10 +73,18 @@ export class RouterComponent implements OnInit {
                     + Cú pháp : .snapshot.params['name-params]
                     + Note snapshot : Không áp dụng khi chuyển trang trên cùng 1 router
                              + Ex : product/1 -> product/2 . Nên thông qua một trang khác
+              --------------------------------------------------------------------------------------
+              -- Subscribe: Áp dụng khi chuyển trang trên cùng 1 router
+                    + Khai báo ActivatedRoute từ @angular/router
+                    + Tiến hành Inject như một service ( inject vào constructor)
+                    + Lấy tham số (params) trên đường dẫn
+                          -- Cú pháp: this.subscription = this.activatedRoute.params.subscribe(data => {
+                                          param = data.param;
+                                       });
 
  */
 
-  // ============================== lấy tham số dạng ? - Query params
+  // ============================== lấy tham số dạng ? - Query params  =======================
   /*
       Note :  -- Truyền lên đường dẫn
                       + Bắt buộc : cần có routerLink
@@ -93,6 +101,100 @@ export class RouterComponent implements OnInit {
              -- Lấy query params
 
  */
+
+  // ==========================  Children router  - navigate   ============================
+  /*
+     Note :  -- Cần import Router, ActivatedRoute từ @angular/core
+                      + ActivatedRoute chính là URL hiện tại
+                      + .parent : lùi về một phần từ và nối tên router
+             -- Inject Router , ActivatedRoute như một service
+             -- Sử dụng Navigate :
+                  .navigate(['/name-router','params'], { relativeTo : this.activatedRoute.parent})
+
+*/
+
+  // ==========================  Children router  - Lấy tham số trên URL  ============================
+  /*
+     Note :  -- Trả về Subscription thuộc về 'rxjs'
+             -- Cú pháp : this.activatedRoute.parent.params.subscribe(params => {params.name-params-in-url})
+             -- Hàm trả về một đối tượng subscription
+
+*/
+
+
+  // ==========================  Router -- CanActive  ============================
+  /*
+     Note :  -- Tạo guard service bằng angular-cli : ng g guard name-guard
+     Note :  -- Thường sử dụng cho Admin, kiểm tra xem có cho phép người dùng vào router đó hay ko
+             -- Là một service - Khai báo trong providers của module
+             -- Thuộc về @angular/router
+                    + canActivate (component: TeamComponent, currentRoute : ActivatedRouteSnapshot, currentState: RouterStateSnapshot,
+                     nextState: RouterStateSnapshot)
+                    + Cú pháp: implement CanDeactivate<Tên Component> (override lại canDeactivate)
+                    + Trả về Observable<boolean>, Promises<boolean>, Boolean.
+                    + Ex : Khi truy cập vào một route bất kì
+                              -- Trả về true => có thể thoát ra
+                              -- Trả về false => không thể thoát ra
+             -- Vào router cần sử dụng khai báo: canDeactivate : [my-service]  // AuthGuard là service
+             -- Note : Có thể tiêm bất kì service bất kì nào vào constructor của Service này để sử dụng . Ex : Router.navigate([''])
+
+*/
+
+  // ==========================  Router -- CanDeactivate  ============================
+  /*
+     Note :  -- Kiểm tra xem người dùng thoát ra khỏi router đó không
+             -- Là một service - Khai báo trong providers của module
+             -- Thuộc về @angular/router
+                    + canDeactivate (route: ActivatedRouteSnapshot, state : RouterStateSnapshot):
+                     Observable<boolean>|Promise<boolean>|boolean
+                    + Cú pháp: implement CanActive (override lại canActive)
+                    + Trả về Observable<boolean>, Promises<boolean>, Boolean.
+                    + Ex : Khi truy cập vào một route bất kì
+                              -- Trả về true => có thể truy cập
+                              -- Trả về false => không thể truy cập
+             -- Vào router cần sử dụng khai báo: canActive : [AuthGuard]  // AuthGuard là service
+             -- Note : Có thể tiêm bất kì service bất kì nào vào constructor của Service này để sử dụng . Ex : Router.navigate([''])
+*/
+
+  // ==========================  Router -- Module  ============================
+  /*
+     Note :  -- Là một class có decorator là @NgModule({})
+             -- Chú ý : khai báo module chạy đầu tiên tại main.ts
+             -- Bao gồm: imports : [], declarations : [], bootstrap: [], providers: [], exports: []
+                         + declarations : component, directives , pipes (note : chỉ thuộc về duy nhất 1 angular module)
+                         + import : module,components, directives, pipes (nếu cần)
+                                -- BrowserModule : bắt buộc import (ngIf, ngFor thuộc CommonModule - @angular/common), đã import
+                                    CommonModule
+                         + providers :  services
+                         + bootstrap :  nơi khai báo component chạy đầu tiên
+                         + exports : export/reexport module, components, directives, pipes . Không export một service
+
+             -- Khai báo module chạy đầu tiên ở main.ts
+             -- Xây dựng Module dùng chung chứa các pipes (bao gồm CommonModule) sau đó reexport CommonModule cho các module khác sử
+              dụng . Tránh việc import lại nhiều lần
+
+
+              ========= Có 2 loại Module ==========
+              -- 1. Module chức năng
+                    + Tạo thư mục Module bằng angular-cli  : ng g module name-module
+                    + Tiến hành import các component, service, pipe của riêng module
+                    + Kéo module vào AppModule (module chạy chính) - dùng từ khóa import
+                            -- Note : Các module (CommonModule ) cần import để sử dụng các dỉrective cần thiết
+                    + Tiền hành tách routing (lưu ý các tên class) :
+                            -- Lúc này là module con => RouterModule.forChild(Routes[])
+                            -- Note : Routing của APP cần import sau Module con
+
+
+               --2. Module dùng chung -- SharedModule
+                    + Tạo thư mục Module bằng angular-cli  : ng g module name-module
+                    + Tiến hành import các component, service, pipe của riêng module
+                    + Muốn các module khác sử dụng được SharedModule => dùng export
+                            -- Ex : declarations: [Pipe, Directive] -- exports : [Pipe, Directive]
+                            -- Ex : declarations: [FormatNumberPipe] -- exports : [FormatNumberPipe]
+                    + Module nào cần sử dụng chỉ cần import SharedModule
+                    + Tips : import CommonModule và exports(CommonModule) để các module khác khi import SahredModule sẽ có CommonModule
+                            -- CommonModule sử dụng cho *ngIf , *ngFor,...
+*/
   constructor() { }
 
   ngOnInit(): void {

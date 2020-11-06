@@ -2,8 +2,13 @@
     <nav class="nav">
         <a class="nav-link" [routerLink] = "['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
         <a class="nav-link" [routerLink] = "['/about']" routerLinkActive="active">About</a>
-        <a class="nav-link" [routerLink] = "['/product']" routerLinkActive="active">Product</a>
+        <a class="nav-link" [routerLink] = "['/products']" routerLinkActive="active">Product</a>
         <a class="nav-link" [routerLink] = "['/contact']" routerLinkActive="active">Contact</a>
+        <a *ngIf="isLogin === false" class="nav-link" [routerLink] = "['/login']" routerLinkActive="active">Login</a>
+<!--        <a *ngIf="isLogin === true" (click)="onLogout()">Logout</a>-->
+        <a class="nav-link" [routerLink] = "['/todos']" routerLinkActive="active">Todos</a>
+        <a class="nav-link" [routerLink] = "['/courses']" routerLinkActive="active">Courses</a>
+        <a class="nav-link" [routerLink] = "['/form']" routerLinkActive="active">Form</a>
 
 
 <!--        <a class="nav-link" (click)="navigate('index')">Home</a>-->

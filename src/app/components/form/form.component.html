@@ -1,0 +1,40 @@
+<div class="statbox widget box box-shadow">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                <h4>Add Course </h4>
+            </div>
+        </div>
+    </div>
+    <div class="widget-content widget-content-area">
+        <form #frmAddUser="ngForm" (ngSubmit)="addUser(frmAddUser)">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control"
+                       [(ngModel)]="user.email"
+                       #email
+                       minlength="4"
+                       maxlength="20"
+                       required="required"
+                       name="email"
+                >
+
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="user.password" name="password" #password>
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" [(ngModel)]="user.name" minlength="10" name="name" #name>
+
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" [(ngModel)]="user.phone" name="phone" #phone>
+            </div>
+            <button type="submit" class="btn btn-primary" >Add</button>
+<!--            <button  class="btn btn-danger" (click)="onResetForm(frmAddUser)">Reset<button>-->
+        </form>
+    </div>
+</div>
