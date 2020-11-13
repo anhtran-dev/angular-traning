@@ -7,7 +7,7 @@ import {LoginComponent} from './components/login/login.component';
 import {DataBindingComponentToViewComponent} from './components/data-binding-component-to-view/data-binding-component-to-view.component';
 import {EventBindingViewToComponentComponent} from './components/event-binding-view-to-component/event-binding-view-to-component.component';
 import {TwoWayBindingComponent} from './components/two-way-binding/two-way-binding.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StructuralDirectiveComponent} from './components/structural-directive/structural-directive.component';
 import {AttributeDirectiveComponent} from './components/attribute-directive/attribute-directive.component';
 import {ComponentInteractionChildComponent} from './components/component-interaction-child/component-interaction-child.component';
@@ -31,12 +31,10 @@ import {MovieService} from './services/movie.service';
 import {RouterComponent} from './components/router/router.component';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {RouterModule} from '@angular/router';
 import {AboutComponent} from './components/about/about.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HomeComponent} from './components/home/home.component';
-import {appRoutes} from './app.routes';
 import {AuthGuard} from './services/guards/auth.guard';
 import {ProductManagementModule} from './product-management/product-management.module';
 import {HttpClientComponent} from './components/http-client/http-client.component';
@@ -44,6 +42,8 @@ import {TodoModule} from './todo/todo.module';
 import {JsonServeComponent} from './components/json-serve/json-serve.component';
 import {CoursesManagementModule} from './courses-management/courses-management.module';
 import {FormComponent} from './components/form/form.component';
+import {ReactiveFormComponent} from './components/reactive-form/reactive-form.component';
+import {CustomValidationComponent} from './components/custom-validation/custom-validation.component';
 
 
 @NgModule({
@@ -81,15 +81,17 @@ import {FormComponent} from './components/form/form.component';
         HttpClientComponent,
         JsonServeComponent,
         FormComponent,
+        ReactiveFormComponent,
+        CustomValidationComponent,
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         ProductManagementModule,
         CoursesManagementModule,
         TodoModule,
         FormsModule,
-        RouterModule.forRoot(appRoutes)
+        ReactiveFormsModule,
+        AppRoutingModule
     ],
     providers: [
         LoggingService,

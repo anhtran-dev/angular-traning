@@ -53,7 +53,8 @@ export class FormComponent implements OnInit {
 
      */
 
-    public user: User = new User(null, null, null, null);
+
+    public user: User = new User(null, null, null, null , null);
 
     constructor() {
     }
@@ -62,6 +63,7 @@ export class FormComponent implements OnInit {
     }
 
     addUser = (frm: NgForm) => {
+        console.log(frm);
         if (frm.valid) {
             console.log(this.user);
         }

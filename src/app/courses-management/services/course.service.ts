@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Course} from '../models/course.class';
 import {HttpClient} from '@angular/common/http';
+import {log} from 'util';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CourseService {
-    public URL = 'http://localhost:3000/courses/';
+    public URL = 'http://localhost:4000/courses/';
 
     constructor(
             public httpClient: HttpClient
@@ -40,5 +42,15 @@ export class CourseService {
 
     deleteCourse = (course: Course): Observable<Course> => {
         return this.httpClient.delete<Course>(this.URL + course.id);
+    };
+
+    searchCourse = (typeString: string): Observable<Course[]> => {
+        if (!typeString.trim()) {
+            return of([]);
+        }
+        return this.httpClient.get<Course[]>(`${this.URL}?name_like=${typeString}`).pipe(
+                tap(data => console.log(data)),
+                catchError(error => of(null))
+        );
     };
 }

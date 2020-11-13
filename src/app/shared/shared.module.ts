@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {AppRoutingModule} from '../app-routing.module';
 
 
 @NgModule({
@@ -13,7 +12,6 @@ import {AppRoutingModule} from '../app-routing.module';
     imports: [
         CommonModule,
         FormsModule,
-        AppRoutingModule,
         HttpClientModule
     ],
     exports: [

@@ -15,7 +15,6 @@ import {AppRoutingModule} from '../app-routing.module';
     imports: [
         CommonModule,
         SharedModule,
-        AppRoutingModule,
         RouterModule.forChild(todoRoutes)
     ],
     providers: [

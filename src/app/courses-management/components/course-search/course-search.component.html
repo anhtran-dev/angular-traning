@@ -1,0 +1,24 @@
+<div style="width: 100%;">
+    <form>
+        <input type="text" [(ngModel)]="searchString" class="form-control" (keyup)="search()" [ngModelOptions]="{standalone: true}">
+    </form>
+
+    <table class="table table-bordered table-hover mb-4" style="margin: 30px 0">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Fee</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of course$ | async; let index = index">
+            <td>{{index + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.fee | currency : 'VND'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

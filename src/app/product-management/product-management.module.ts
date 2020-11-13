@@ -4,7 +4,6 @@ import {ProductEditComponent} from './components/product-edit/product-edit.compo
 import {ProductListComponent} from './components/product-list/product-list.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
 import {ProductService} from './services/product.service';
-import {AppRoutingModule} from '../app-routing.module';
 import {RouterModule} from '@angular/router';
 import {productRoutes} from './product-management.routes';
 import {SharedModule} from '../shared/shared.module';
@@ -19,7 +18,6 @@ import {SharedModule} from '../shared/shared.module';
     ],
     imports: [
         SharedModule,
-        AppRoutingModule,
         RouterModule.forChild(productRoutes)
     ],
     providers: [
