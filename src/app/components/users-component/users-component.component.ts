@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import io from "socket.io-client";
 let socket;
 socket = io('http://sports.local:3003');
@@ -7,7 +7,7 @@ socket = io('http://sports.local:3003');
     templateUrl: './users-component.component.html',
     styleUrls: ['./users-component.component.css']
 })
-export class UsersComponentComponent implements OnInit {
+export class UsersComponentComponent implements OnInit ,OnChanges{
     users = [
         {
             id: 7,
@@ -58,17 +58,19 @@ export class UsersComponentComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        socket.on('message', (data) => {
+            console.log(data);
+        }) ;
+    }
+    ngOnChanges(simpleChanges: SimpleChanges): void {
     }
 
   JoinGroup = (id , name , room) => {
-      socket.emit('joinGroup' , {id , name , room}, (error) => {
-          console.log(error);
-      });
+      socket.emit('joinGroup' , {id , name , room});
   }
     SendChat = (name , room , message) => {
-        socket.emit('sendMessage' , { name , room, message}, (error) => {
-            console.log(error);
-        });
+        socket.emit('sendMessage' , { name , room, message});
     }
+
 
 }
