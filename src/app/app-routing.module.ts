@@ -8,6 +8,7 @@ import {ContactComponent} from './components/contact/contact.component';
 import {FormComponent} from './components/form/form.component';
 import {ReactiveFormComponent} from './components/reactive-form/reactive-form.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
+import {UsersComponentComponent} from './components/users-component/users-component.component';
 
 const appRoutes: Routes = [
     // {
@@ -43,6 +44,10 @@ const appRoutes: Routes = [
     {
         path: 'data-form',
         component: ReactiveFormComponent
+    },
+    {
+        path: 'users',
+        component: UsersComponentComponent
     },
     {
         path: '**',

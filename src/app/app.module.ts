@@ -44,6 +44,7 @@ import {CoursesManagementModule} from './courses-management/courses-management.m
 import {FormComponent} from './components/form/form.component';
 import {ReactiveFormComponent} from './components/reactive-form/reactive-form.component';
 import {CustomValidationComponent} from './components/custom-validation/custom-validation.component';
+import { UsersComponentComponent } from './components/users-component/users-component.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import {CustomValidationComponent} from './components/custom-validation/custom-v
         FormComponent,
         ReactiveFormComponent,
         CustomValidationComponent,
+        UsersComponentComponent,
     ],
     imports: [
         BrowserModule,

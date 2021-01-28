@@ -1,0 +1,47 @@
+<div class="statbox widget box box-shadow">
+    <div class="widget-header">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                <h4>List Users </h4>
+            </div>
+        </div>
+    </div>
+    <div class="widget-content widget-content-area">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover mb-4">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Avatar</th>
+                    <th>Active</th>
+                    <!--                    <th></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of users; let index = index">
+                    <td>{{index + 1}}</td>
+                    <td>
+                        <a [routerLink]="['/product/'+item.id]">{{item.email}}</a>
+                    </td>
+                    <td>{{item.first_name}}</td>
+                    <td>{{item.last_name}}</td>
+                    <td>{{item.avatar}}</td>
+                    <td>
+                        <button class="btn btn-sm" (click)="JoinGroup(item.id , item.first_name , 'abc')">Join</button>
+                        <input type="text" placeholder="Chat" class="form-control" [(ngModel)] = "message" [ngModelOptions]="{standalone: true}">
+                        <button class="btn btn-sm" (click)="SendChat(item.first_name , 'abc' , message)">Chat</button>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
