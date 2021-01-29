@@ -69,14 +69,14 @@ export class UsersComponentComponent implements OnInit, OnChanges {
     ngOnChanges(simpleChanges: SimpleChanges): void {
     }
 
-    JoinGroup = (id, name, room) => {
-        socket.emit('joinGroup', {id, name, room});
+    JoinGroup = (id, name, avatar , room) => {
+        socket.emit('joinGroup', {id, name, avatar, room});
     };
     LeaveGroup = (name, room) => {
         socket.emit('leaveGroup', {name, room});
     };
-    SendChat = (name, room, message) => {
-        socket.emit('sendMessage', {name, room, message});
+    SendChat = (name, avatar, room, message) => {
+        socket.emit('sendMessage', {name, avatar, room, message});
     };
 
 

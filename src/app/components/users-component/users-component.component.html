@@ -16,7 +16,7 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Avatar</th>
-                    <th>Active</th>
+                    <th>Action</th>
                     <!--                    <th></th>-->
                 </tr>
                 </thead>
@@ -30,10 +30,10 @@
                     <td>{{item.last_name}}</td>
                     <td>{{item.avatar}}</td>
                     <td>
-                        <button class="btn btn-sm btn-success" (click)="JoinGroup(item.id , item.first_name , 'abc')">Join</button>
+                        <button class="btn btn-sm btn-success" (click)="JoinGroup(item.id , item.first_name , item.avatar , 'abc')">Join</button>
                         <button class="btn btn-sm btn-danger" (click)="LeaveGroup(item.first_name ,  'abc')">Leave</button>
                         <input type="text" placeholder="Chat" class="form-control" [(ngModel)] = "message" [ngModelOptions]="{standalone: true}">
-                        <button class="btn btn-sm btn-primary" (click)="SendChat(item.first_name , 'abc' , message)">Chat</button>
+                        <button class="btn btn-sm btn-primary" (click)="SendChat(item.first_name , item.avatar, 'abc' , message)">Chat</button>
                     </td>
 
                 </tr>
