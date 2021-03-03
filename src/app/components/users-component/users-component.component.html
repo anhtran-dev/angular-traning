@@ -30,16 +30,26 @@
                     <td>{{item.last_name}}</td>
                     <td>{{item.avatar}}</td>
                     <td>
-                        <button class="btn btn-sm btn-success" (click)="JoinGroup(item.id , item.first_name , item.avatar , 'abc')">Join</button>
+                        <button class="btn btn-sm btn-success" (click)="JoinGroup(item.id , item.first_name , item.last_name , item.avatar , 'abc')">Join</button>
                         <button class="btn btn-sm btn-danger" (click)="LeaveGroup(item.first_name ,  'abc')">Leave</button>
-                        <input type="text" placeholder="Chat" class="form-control" [(ngModel)] = "message" [ngModelOptions]="{standalone: true}">
-                        <button class="btn btn-sm btn-primary" (click)="SendChat(item.first_name , item.avatar, 'abc' , message)">Chat</button>
+                        <input type="text" placeholder="Chat" class="form-control" [(ngModel)] = "message" [ngModelOptions]="{standalone: true}" (ngModelChange)="onChangeInput(item.id , item.first_name , item.last_name , item.avatar ,'abc')">
+                        <button class="btn btn-sm btn-primary" (click)="SendChat(item.id , item.first_name , item.last_name , item.avatar, 'abc' , message)">Chat</button>
                     </td>
 
                 </tr>
 
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="widget-content widget-content-area">
+        <div class="wp-post">
+            <img src="https://duhocminhkhang.com/wp-content/uploads/2020/01/T%E1%BB%95ng-h%E1%BB%A3p-h%C3%ACnh-%E1%BA%A3nh-g%C3%A1i-xinh-%C4%91eo-m%E1%BA%AFt-k%C3%ADnh-c%E1%BB%B1c-cute-10-1.jpg" alt="">
+        </div>
+        <div class="comment">
+            <input type="text" placeholder="Chat" class="form-control" [(ngModel)] = "comments" [ngModelOptions]="{standalone: true}">
+            <button class="btn btn-sm btn-primary" (click)="comment(10 , 'Yasu' , 'LOL' , 'abc.png', comments , 20)">Chat</button>
         </div>
     </div>
 

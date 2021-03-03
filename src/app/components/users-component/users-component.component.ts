@@ -1,5 +1,6 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import io from 'socket.io-client';
+import {Router} from '@angular/router';
 
 let socket;
 socket = io('http://sports.local:3003');
@@ -10,6 +11,12 @@ socket = io('http://sports.local:3003');
     styleUrls: ['./users-component.component.css']
 })
 export class UsersComponentComponent implements OnInit, OnChanges {
+    public comments: string;
+    constructor(
+            public routerService: Router
+    ) {
+    }
+
     users = [
         {
             id: 7,
@@ -54,30 +61,52 @@ export class UsersComponentComponent implements OnInit, OnChanges {
             avatar: 'https://reqres.in/img/faces/12-image.jpg'
         }
     ];
-    public message: string;
-
-    constructor() {
-    }
+    public typing = false;
+    // public comment: string;
 
     ngOnInit(): void {
         console.log('ng on init ');
         socket.on('message', (data) => {
             console.log(data);
         });
+        socket.on('display', (data) => {
+            console.log(data);
+        });
+        socket.on('comment', (data) => {
+            console.log(data);
+        });
     }
 
     ngOnChanges(simpleChanges: SimpleChanges): void {
+        console.log('on change');
     }
 
-    JoinGroup = (id, name, avatar , room) => {
-        socket.emit('joinGroup', {id, name, avatar, room});
+    @Input('total') message: string;
+
+    JoinGroup = (id, first_name, last_name, avatar, room) => {
+        socket.emit('joinGroup', {id, first_name, last_name, avatar, room});
+        // return this.routerService.navigate(['/chats/' + room]);
     };
     LeaveGroup = (name, room) => {
         socket.emit('leaveGroup', {name, room});
     };
-    SendChat = (name, avatar, room, message) => {
-        socket.emit('sendMessage', {name, avatar, room, message});
+    SendChat = (id, first_name, last_name, avatar, room, message) => {
+        socket.emit('sendMessage', {id, first_name, last_name, avatar, room, message});
     };
 
+    onChangeInput = (id, first_name, last_name,avatar,  room) => {
+        if (this.message.length > 0) {
+            this.typing = true;
+        }
+        else{
+            this.typing = false;
+        }
+        socket.emit('typing', {id, first_name, last_name, avatar, room , typing : this.typing});
+    };
+
+    comment = (user_id , first_name , last_name , avatar , comment , post_id) => {
+        console.log(10);
+        socket.emit('addComments', {user_id, first_name, last_name, avatar, comment, post_id});
+    }
 
 }
